@@ -55,7 +55,8 @@ h3 {
 
 #ul {
 		margin-top:10px;
-		display:none;
+		display:flex;
+flex-direction:column-reverse;
 }
 
 .sticky {
