@@ -1,6 +1,6 @@
 window.onload = function() {
-		firebase.auth().signOut().then(function() {
-          				
+        firebase.auth().signOut().then(function() {
+                          
     document.getElementById("loginbtn").innerHTML = "Log In"
     document.getElementById("loginbtn").disabled = false
 }).catch(function(error){
@@ -81,9 +81,9 @@ function writeData() {
     
     
     if (emailC != "" && passwordC != "") {
-          		
+                  
              firebase.auth().createUserWithEmailAndPassword(emailC, passwordC).then(function(){
-             		 var user = firebase.auth().currentUser;
+                      var user = firebase.auth().currentUser;
 
 user.sendEmailVerification().then(function() {
   // Email sent.
@@ -134,7 +134,7 @@ user.sendEmailVerification().then(function() {
                
               
           
-      	  else {swal({
+            else {swal({
               title: "Hello user",
               text: "Please fill all fields",
               icon: "info",
@@ -158,15 +158,15 @@ function checkData() {
     document.getElementById("loginbtn").innerHTML = "Loading..."
     document.getElementById("loginbtn").disabled = true
     
-  	email = document.getElementById("email").value,
+      email = document.getElementById("email").value,
     password = document.getElementById("password").value
               
           if (email != "" && password != "") {
-              		
+                      
               
-      				
+                      
           firebase.auth().signInWithEmailAndPassword(email, password).then(function(){
-          				firebase.database().ref("Users").once("value", function(snapshot) {
+                          firebase.database().ref("Users").once("value", function(snapshot) {
               snapshot.forEach(function(childSnapshot) {
               var childKey = childSnapshot.key;
               var childEmail = childSnapshot.val().email;
@@ -174,22 +174,22 @@ function checkData() {
               var childUsername = childSnapshot.val().username;
               
               if (email == childEmail && password == childPassword) {
-              	  user = childUsername
+                    user = childUsername
                   swal({
-          				    title: "Hello " + user,
-          				    text: "Logged in successfully",
-          				    icon: "success",
-          				})
-          				document.getElementById("name").innerHTML = user + " <span style='font-size:15px;'>online</span>"
-          				document.getElementById("logPage").style.display = "none"
-          				document.getElementById("createPage").style.display = "none"
-          				document.getElementById("after").style.display = "none"
-          				document.getElementById("inside").style.display = "block"
-          				document.getElementById("ul").style.display = "block"
-          				document.getElementById("loginbtn").innerHTML = "Log In"
+                              title: "Hello " + user,
+                              text: "Logged in successfully",
+                              icon: "success",
+                          })
+                          document.getElementById("name").innerHTML = user + " <span style='font-size:15px;'>online</span>"
+                          document.getElementById("logPage").style.display = "none"
+                          document.getElementById("createPage").style.display = "none"
+                          document.getElementById("after").style.display = "none"
+                          document.getElementById("inside").style.display = "block"
+                          document.getElementById("ul").style.display = "flex"
+                          document.getElementById("loginbtn").innerHTML = "Log In"
     document.getElementById("loginbtn").disabled = false
-          				
-              	  console.log(k)
+                          
+                    console.log(k)
           }
           else{
               document.getElementById("after").style.display = "block"
@@ -197,23 +197,23 @@ function checkData() {
               firebase.auth().signOut().then(function() {
          
         
-          				
+                          
     document.getElementById("loginbtn").innerHTML = "Log In"
     document.getElementById("loginbtn").disabled = false
 }).catch(function(error){
-				swal({
-          				    title: "Hello user",
-          				    text: "Logged in successfully",
-          				    icon: "success",
-          				})
-          				
+                swal({
+                              title: "Hello user",
+                              text: "Logged in successfully",
+                              icon: "success",
+                          })
+                          
     document.getElementById("loginbtn").innerHTML = "Log In"
     document.getElementById("loginbtn").disabled = false
 });
           }
           })
            })
-          				}).catch(function(error) {
+                          }).catch(function(error) {
   // Handle Errors here.
   var errorCode = error.code;
   var errorMessage = error.message;
@@ -253,7 +253,7 @@ function checkData() {
 
 
 function setUsername() {
-		
+        
     document.getElementById("submitbtn").innerHTML = "Loading..."
     document.getElementById("submitbtn").disabled = true
     username = document.getElementById("username").value
@@ -295,7 +295,7 @@ function setUsername() {
       }
       }
       else if(email != "") {
-      				firebase.database().ref("Users").push().set({
+                      firebase.database().ref("Users").push().set({
                   "email": email,
                   "password": password,
                   "username": username
@@ -329,31 +329,31 @@ function setUsername() {
 
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
-          				
+                          
     document.getElementById("loginbtn").innerHTML = "Log In"
     document.getElementById("loginbtn").disabled = true
                       
                    
      } 
    else {
-   		document.getElementById("loginbtn").innerHTML = "Log In"
+           document.getElementById("loginbtn").innerHTML = "Log In"
     document.getElementById("loginbtn").disabled = false
-   		}
+           }
      
 });
 
 function logOut() {
-		firebase.auth().signOut().then(function() {
+        firebase.auth().signOut().then(function() {
   swal({
       title: "Hello user",
       text: "Logged out successfully",
       icon: "success",
   });
   document.getElementById("logPage").style.display = "block"
-          				document.getElementById("createPage").style.display = "none"
-          				document.getElementById("after").style.display = "none"
-          				document.getElementById("inside").style.display = "none"
-          				document.getElementById("ul").style.display = "none"
+                          document.getElementById("createPage").style.display = "none"
+                          document.getElementById("after").style.display = "none"
+                          document.getElementById("inside").style.display = "none"
+                          document.getElementById("ul").style.display = "none"
 }).catch(function(error) {
   swal({
       title: "Hello user",
@@ -366,19 +366,19 @@ function logOut() {
 
 
 function newPost() {
-		document.getElementById("ul").style.display = "none"
-		document.getElementById("postinput").style.display = "block"
+        document.getElementById("ul").style.display = "none"
+        document.getElementById("postinput").style.display = "block"
 }
 
 function backpost() {
-		document.getElementById("postinput").style.display = "none"
-		document.getElementById("ul").style.display = "block"
+        document.getElementById("postinput").style.display = "none"
+        document.getElementById("ul").style.display = "flex"
 }
 
 
 
 function postpost() {
-		document.getElementById("postbtn").innerHTML = "Loading..."
+        document.getElementById("postbtn").innerHTML = "Loading..."
     document.getElementById("postbtn").disabled = true
     post = document.getElementById("post").value
     var a = new Date
@@ -395,7 +395,7 @@ function postpost() {
     
     
     if (post!=""){
-    				
+                    
         firebase.database().ref("Posts").push().set({
                   "username": user,
                   "post": post,
@@ -452,6 +452,7 @@ firebase.database().ref("Posts").on("child_added", function(snapshot){
           
           html += "</li>"
           document.getElementById("ul").innerHTML += html;
+          document.getElementById("ul").style.display = "flex"
   
   });
   
@@ -473,10 +474,10 @@ function allUsers() {
 
 
 function backuser() {
-		document.getElementById("ul").style.display = "block"
+        document.getElementById("ul").style.display = "flex"
           document.getElementById("allUsers").style.display = "none"
           document.getElementById("postinput").style.display = "none"
-		
+        
 }
 
 
