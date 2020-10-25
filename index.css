@@ -14,8 +14,6 @@ input, button, textarea {
 
 #inside{
 	  display:none;
-          width:100%;
-
 }
 
 #navbar {
@@ -56,7 +54,7 @@ h3 {
 #ul {
 		margin-top:10px;
 		display:flex;
-flex-direction:column-reverse;
+		flex-direction: column-reverse;
 }
 
 .sticky {
