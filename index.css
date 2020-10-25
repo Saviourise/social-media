@@ -1,0 +1,69 @@
+body, h1, h2, h3, h4, h5, h6, p, div, span {
+		font-family:Raleway;
+		
+}
+
+input, button, textarea {
+		outline:none
+}
+
+
+#createPage, #after, #postinput {
+		display:none;
+}
+
+#inside{
+	  display:none;
+}
+
+#navbar {
+
+    padding-bottom: 5px;
+    position: sticky;
+    top: 0;
+    margin-bottom: -20px;
+    overflow:hidden;
+}
+
+li {
+		margin-top:30px;
+		width:100%;
+		list-style-type:none;
+}
+
+.body{
+		margin:0;
+}
+
+.logindiv {
+	position:absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width:100%;
+}
+
+h3 {
+	 display:inline;
+}
+
+#date {
+    font-size:12px;
+}
+
+#ul {
+		margin-top:10px;
+		display:none;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 60px;
+}
+
+#allUsers {display:none; margin-top:15px;}
