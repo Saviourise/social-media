@@ -14,7 +14,8 @@ input, button, textarea {
 
 #inside{
 	  display:none;
-          margin-top:-80px;
+          width:100%;
+
 }
 
 #navbar {
