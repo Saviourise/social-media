@@ -395,7 +395,8 @@ function postpost() {
     
     
     if (post!=""){
-                    
+                    post=post.replace(/</g,' gt ')
+        post=post.replace(/>/g,' lt ')
         firebase.database().ref("Posts").push().set({
                   "username": user,
                   "post": post,
